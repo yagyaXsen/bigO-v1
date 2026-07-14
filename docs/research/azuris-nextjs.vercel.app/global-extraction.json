@@ -1,0 +1,113 @@
+{
+  "title": "Index Software Development Company | Azurio - Digital Agency & Portfolio NextJs Template",
+  "fontWeights": {
+    "Manrope": [
+      "400",
+      "500",
+      "600",
+      "700"
+    ],
+    "JetBrains Mono": [
+      "400",
+      "500",
+      "600",
+      "700"
+    ]
+  },
+  "fontLinks": [],
+  "favicons": [
+    {
+      "rel": "icon",
+      "href": "https://azuris-nextjs.vercel.app/favicon.ico?favicon.06ndfltiw7e6y.ico",
+      "sizes": "256x256",
+      "type": "image/x-icon"
+    }
+  ],
+  "meta": {
+    "viewport": "width=device-width, initial-scale=1",
+    "next-size-adjust": "",
+    "description": "Azurio - Digital Agency & Portfolio NextJs Template"
+  },
+  "topColors": [
+    [
+      "rgb(87, 89, 96)",
+      1532
+    ],
+    [
+      "rgb(18, 18, 18)",
+      424
+    ],
+    [
+      "rgb(255, 255, 255)",
+      336
+    ],
+    [
+      "rgb(0, 0, 238)",
+      220
+    ],
+    [
+      "rgb(0, 0, 0)",
+      98
+    ],
+    [
+      "rgb(142, 147, 161)",
+      92
+    ],
+    [
+      "rgb(148, 146, 145)",
+      14
+    ],
+    [
+      "rgb(0, 43, 186)",
+      13
+    ],
+    [
+      "rgb(219, 216, 216)",
+      12
+    ],
+    [
+      "rgb(125, 127, 137)",
+      10
+    ],
+    [
+      "rgb(54, 54, 60)",
+      6
+    ],
+    [
+      "rgb(249, 247, 247)",
+      3
+    ],
+    [
+      "rgb(238, 234, 232)",
+      2
+    ],
+    [
+      "rgb(15, 15, 15)",
+      2
+    ],
+    [
+      "rgba(255, 255, 255, 0.6)",
+      2
+    ],
+    [
+      "rgba(238, 234, 232, 0)",
+      1
+    ],
+    [
+      "rgb(175, 175, 175)",
+      1
+    ],
+    [
+      "rgba(0, 0, 0, 0.4)",
+      1
+    ]
+  ],
+  "bodyBg": "rgb(238, 234, 232)",
+  "bodyColor": "rgb(87, 89, 96)",
+  "bodyFont": "Manrope, \"Manrope Fallback\"",
+  "htmlScrollBehavior": "auto",
+  "hasLenis": true,
+  "htmlClasses": "no-touch lenis",
+  "bodyClasses": "manrope_b7d5735e-module__suUhcW__variable jetbrains_mono_707233f-module__9hS9bG__variable",
+  "pageHeight": 16278
+}
