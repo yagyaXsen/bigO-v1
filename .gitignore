@@ -10,6 +10,22 @@ out/
 build/
 dist/
 
+# Antigravity artifacts
+.agents/
+.gemini/
+
+# Website Cloner Template files
+.claude/
+.github/
+docs/
+scripts/
+*.json
+!package.json
+!package-lock.json
+!tsconfig.json
+!tsconfig.node.json
+!components.json
+
 # Environment
 .env
 .env.local
