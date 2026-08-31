@@ -18,8 +18,9 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title:
-    "Index Software Development Company | Azurio - Digital Agency & Portfolio NextJs Template",
-  description: "Azurio - Digital Agency & Portfolio NextJs Template",
+    "bigO — Digital Studio | We build, run & grow your business online",
+  description:
+    "bigO is a small, focused digital studio that builds websites, web apps, AI automation, and full digital presence. One team, complete solution.",
   icons: { icon: "/favicon.ico" },
 };
 

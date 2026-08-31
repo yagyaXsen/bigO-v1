@@ -1,4 +1,4 @@
-// Content structures for the Azurio clone.
+// Content structures for the bigO site.
 
 export interface SocialLink {
   label: string;
@@ -45,6 +45,8 @@ export interface InsightPost {
   title: string;
   tags: string[];
   image: string;
+  /** Per-card image aspect ratio — the reference staggers card heights */
+  aspect: string; // e.g. "aspect-[3/2]"
 }
 
 export interface NavLink {

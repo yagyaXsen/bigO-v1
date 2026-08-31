@@ -2,7 +2,7 @@ import type { SVGProps } from "react";
 
 type IconProps = SVGProps<SVGSVGElement>;
 
-/** Azurio pixel-art cat logo mark */
+/** bigO logo mark */
 export function LogoIcon(props: IconProps) {
   return (
     <svg viewBox="0 0 42.4 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg" {...props}>

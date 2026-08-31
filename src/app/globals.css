@@ -10,7 +10,7 @@
   --font-sans: var(--font-manrope), "Manrope Fallback", ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), "JetBrains Mono Fallback", ui-monospace, monospace;
   --font-heading: var(--font-manrope), "Manrope Fallback", ui-sans-serif, sans-serif;
-  /* Azurio brand tokens */
+  /* bigO brand tokens */
   --color-accent-blue: var(--accent-blue);
   --color-ink: var(--ink);
   --color-body: var(--body-text);
@@ -53,7 +53,7 @@
 }
 
 :root {
-  /* Azurio light theme — warm off-white bg, near-black ink, muted body, electric-blue accent */
+  /* bigO light theme — warm off-white bg, near-black ink, muted body, electric-blue accent */
   --background: #eeeae8; /* rgb(238,234,232) */
   --foreground: #575960; /* rgb(87,89,96) body text */
   --ink: #121212; /* rgb(18,18,18) headings */
@@ -92,7 +92,7 @@
 }
 
 .dark {
-  /* Azurio "Night" theme — near-black bg, cool-grey body, white headings */
+  /* bigO "Night" theme — near-black bg, cool-grey body, white headings */
   --background: #0f0f0f; /* rgb(15,15,15) */
   --foreground: #8e93a1; /* rgb(142,147,161) */
   --ink: #ffffff;
@@ -147,9 +147,20 @@
   }
 }
 
-/* ---------- Azurio design system ---------- */
+/* ---------- bigO design system ---------- */
 @theme inline {
   --text-eyebrow: 0.875rem;
+  
+  --animate-marquee: marquee 30s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% / 3 - 16px));
+    }
+  }
 }
 
 @layer components {
@@ -185,13 +196,74 @@
     color: var(--muted-foreground);
     letter-spacing: 0.02em;
   }
-  /* Page container */
+  /* Page container — reference .mxd-container:
+     max-width 1920px; padding 30px → 60px (768+) → 100px (1600+) */
   .mxd-container {
+    position: relative;
     width: 100%;
-    max-width: 1600px;
+    max-width: 1920px;
     margin-inline: auto;
-    padding-inline: clamp(1.25rem, 5vw, 5.5rem);
+    padding-inline: 30px;
   }
+  @media (min-width: 768px) {
+    .mxd-container {
+      padding-inline: 60px;
+    }
+  }
+  @media (min-width: 1600px) {
+    .mxd-container {
+      padding-inline: 100px;
+    }
+  }
+}
+
+/* Progressive bottom-of-viewport blur (optimized reference .blur-container):
+   fixed 240px (→300px @1200) strip with 3 hardware-accelerated backdrop-filter layers.
+   Toggled display:block by BlurSection ScrollTriggers. */
+.blur-container {
+  pointer-events: none;
+  z-index: 10;
+  flex: none;
+  width: 100%;
+  height: 240px;
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  transform: translateZ(0);
+}
+@media (min-width: 1200px) {
+  .blur-container {
+    height: 300px;
+  }
+}
+.blur-layer {
+  pointer-events: none;
+  border-radius: 0;
+  position: absolute;
+  inset: 0;
+  transform: translateZ(0);
+}
+.blur-1 {
+  z-index: 1;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0.8) 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0.8) 100%);
+}
+.blur-2 {
+  z-index: 2;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 35%, rgba(0, 0, 0, 0.6) 70%, #000 100%);
+  mask-image: linear-gradient(to bottom, transparent 35%, rgba(0, 0, 0, 0.6) 70%, #000 100%);
+}
+.blur-3 {
+  z-index: 3;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 70%, #000 100%);
+  mask-image: linear-gradient(to bottom, transparent 70%, #000 100%);
 }
 
 /* Lenis smooth-scroll base styles */
@@ -234,4 +306,11 @@ html.lenis body {
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Custom cursor active (reference #mxd-cursor) — hide the native pointer.
+   Form fields keep their caret so text entry stays usable. Only engaged on
+   fine-pointer, non-reduced-motion devices (CustomCursor adds the class). */
+html.has-custom-cursor *:not(input):not(textarea):not(select) {
+  cursor: none;
 }
